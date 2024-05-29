@@ -197,7 +197,7 @@ def CustomLEDCycle(M,LED,Value):
         
     if (Value>0.0):
         SetOutputOn(M,LED,1)
-        time.sleep(Value*30.0)#Sleep whatever fraction of 30 seconds we are interested in
+        time.sleep(Value*30.0) #Sleep whatever fraction of 30 seconds we are interested in
         SetOutputOn(M,LED,0)
         
     return  

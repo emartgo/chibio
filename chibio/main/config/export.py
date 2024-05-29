@@ -78,7 +78,6 @@ def csvData(M):
     csvFile.close()        
     lock.release() 
     
-# TITLE: EXPORT MODULE
 def downsample(M):
     #In order to prevent the UI getting too laggy, we downsample the stored data every few hours. Note that this doesnt downsample that which has already been written to CSV, so no data is ever lost.
     global sysData
@@ -125,7 +124,6 @@ def downsample(M):
         sysData[M][FP]['Emit1Record']=downsampleFunc(sysData[M][FP]['Emit1Record'],index)
         sysData[M][FP]['Emit2Record']=downsampleFunc(sysData[M][FP]['Emit2Record'],index)
         
-# TITLE: EXPORT MODULE
 def downsampleFunc(datain,index):
     #This function Is used to downsample the arrays, taking the points selected by the index vector.
     datain=list(datain)
