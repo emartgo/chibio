@@ -1,0 +1,58 @@
+{
+    "Multiplexer": { "device": 0, "M0": "00000001", "M1": "00000010", "M2": "00000100", "M3": "00001000", "M4": "00010000", "M5": "00100000", "M6": "01000000", "M7": "10000000" },
+    "UIDevice": "M0",
+    "Watchdog": { "pin": "P8_11", "thread": 0, "ON": 1 },
+    "FailCount": 0,
+    "All": { "ONL": 250, "ONH": 251, "OFFL": 252, "OFFH": 253 },
+    "Stir": { "ONL": 6, "ONH": 7, "OFFL": 8, "OFFH": 9 },
+    "Heat": { "ONL": 62, "ONH": 63, "OFFL": 64, "OFFH": 65 },
+    "UV": { "ONL": 66, "ONH": 67, "OFFL": 68, "OFFH": 69 },
+    "LEDA": { "ONL": 14, "ONH": 15, "OFFL": 16, "OFFH": 17 },
+    "LEDB": { "ONL": 22, "ONH": 23, "OFFL": 24, "OFFH": 25 },
+    "LEDC": { "ONL": 10, "ONH": 11, "OFFL": 12, "OFFH": 13 },
+    "LEDD": { "ONL": 26, "ONH": 27, "OFFL": 28, "OFFH": 29 },
+    "LEDE": { "ONL": 34, "ONH": 35, "OFFL": 36, "OFFH": 37 },
+    "LEDF": { "ONL": 30, "ONH": 31, "OFFL": 32, "OFFH": 33 },
+    "LEDG": { "ONL": 18, "ONH": 19, "OFFL": 20, "OFFH": 21 },
+    "LEDH": { "ONL": 38, "ONH": 39, "OFFL": 40, "OFFH": 41 },
+    "LEDI": { "ONL": 46, "ONH": 47, "OFFL": 48, "OFFH": 49 },
+    "LEDJ": { "ONL": 54, "ONH": 55, "OFFL": 56, "OFFH": 57 },
+    "Pump1": {
+        "In1": { "ONL": 6, "ONH": 7, "OFFL": 8, "OFFH": 9 },
+        "In2": { "ONL": 10, "ONH": 11, "OFFL": 12, "OFFH": 13 }
+    },
+    "Pump2": {
+        "In1": { "ONL": 14, "ONH": 15, "OFFL": 16, "OFFH": 17 },
+        "In2": { "ONL": 18, "ONH": 19, "OFFL": 20, "OFFH": 21 }
+    },
+    "Pump3": {
+        "In1": { "ONL": 22, "ONH": 23, "OFFL": 24, "OFFH": 25 },
+        "In2": { "ONL": 26, "ONH": 27, "OFFL": 28, "OFFH": 29 }
+    },
+    "Pump4": {
+        "In1": { "ONL": 30, "ONH": 31, "OFFL": 32, "OFFH": 33 },
+        "In2": { "ONL": 34, "ONH": 35, "OFFL": 36, "OFFH": 37 }
+    },
+    "AS7341": {
+        "0x00": { "A": "nm470", "B": "U" },
+        "0x01": { "A": "U", "B": "nm410" },
+        "0x02": { "A": "U", "B": "U" },
+        "0x03": { "A": "nm670", "B": "U" },
+        "0x04": { "A": "U", "B": "nm583" },
+        "0x05": { "A": "nm510", "B": "nm440" },
+        "0x06": { "A": "nm550", "B": "U" },
+        "0x07": { "A": "U", "B": "nm620" },
+        "0x08": { "A": "CLEAR", "B": "U" },
+        "0x09": { "A": "nm550", "B": "U" },
+        "0x0A": { "A": "U", "B": "nm620" },
+        "0x0B": { "A": "U", "B": "U" },
+        "0x0C": { "A": "nm440", "B": "U" },
+        "0x0D": { "A": "U", "B": "nm510" },
+        "0x0E": { "A": "nm583", "B": "nm670" },
+        "0x0F": { "A": "nm470", "B": "U" },
+        "0x10": { "A": "ExtGPIO", "B": "nm410" },
+        "0x11": { "A": "CLEAR", "B": "ExtINT" },
+        "0x12": { "A": "DARK", "B": "U" },
+        "0x13": { "A": "FLICKER", "B": "NIR" }
+    }
+}
