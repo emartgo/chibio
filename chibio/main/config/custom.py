@@ -21,7 +21,6 @@ def SetCustom(Program,Status):
         sysData[M][item]['param3']=0.0
     return('',204)
 		
-        
 def CustomProgram(M):
     #Runs a custom program, some examples are included. You can remove/edit this function as you see fit.
     #Note that the custom programs (as set up at present) use an external .csv file with input parameters. THis is done to allow these parameters to easily be varied on the fly. 
@@ -211,8 +210,6 @@ def CharacteriseDevice(M,Program):
         cthread.start()
     
     return('',204)
-        
-        
         
 def CharacteriseDevice2(M):
     global sysData

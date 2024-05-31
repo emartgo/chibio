@@ -113,11 +113,9 @@ function updateData(data){
         document.getElementById("Pump3Current").innerHTML=data.Pump3.target.toFixed(3);
         document.getElementById("Pump4Current").innerHTML=data.Pump4.target.toFixed(3);
         
-        
         document.getElementById("StirCurrent").innerHTML=data.Stir.target.toFixed(3);
         document.getElementById("LightCurrent").innerHTML=data.Light.Excite;
         document.getElementById("CustomStatus").innerHTML=data.Custom.Status.toFixed(3);
-        
          
         document.getElementById("StartTime").innerHTML = data.Experiment.startTime;
         

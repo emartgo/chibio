@@ -36,7 +36,6 @@ def I2CCom(M,device,rw,hl,data1,data2,SMBUSFLAG):
     #Any time a thread gets to this point it will wait until the lock is free. Then, only one thread at a time will advance. 
     lock.acquire()
 
-    
     #We now connect the multiplexer to the appropriate device to allow digital communications.
     tries=0
     while(tries!=-1):
@@ -73,9 +72,6 @@ def I2CCom(M,device,rw,hl,data1,data2,SMBUSFLAG):
             print(str(datetime.now()) + 'Failed to communicate to Multiplexer 20 times. Disabling hardware and software!')
             tries=-1
             os._exit(4)
-    
-    
-
     
     time.sleep(0.0005)
     out=0;
@@ -124,8 +120,6 @@ def I2CCom(M,device,rw,hl,data1,data2,SMBUSFLAG):
             os._exit(4)
                 
     time.sleep(0.0005)
-    
-
     
     try:
         sysItems['Multiplexer']['device'].write8(int(0x00),int(0x00)) #Disconnect multiplexer with each iteration. 
