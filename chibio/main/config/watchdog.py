@@ -2,7 +2,9 @@ from .sys import sysItems
 import time
 from datetime import datetime
 from threading import Thread
-from .arduino import GPIO
+from .arduino.mockgpio import *
+
+GPIO = MockGPIO()
 
 def runWatchdog():  
     #Watchdog timing function which continually runs in a thread.
@@ -22,12 +24,12 @@ def toggleWatchdog():
     time.sleep(0.05)
     GPIO.output(sysItems['Watchdog']['pin'], GPIO.LOW)
     
-GPIO.setup(sysItems['Watchdog']['pin'], GPIO.OUT)
-print(str(datetime.now()) + ' Starting watchdog')
-sysItems['Watchdog']['thread']=Thread(target = runWatchdog, args=())
-sysItems['Watchdog']['thread'].setDaemon(True)
-sysItems['Watchdog']['thread'].start(); 
-GPIO.setup('P8_15', GPIO.OUT) #This output connects to the RESET pin on the I2C Multiplexer.
-GPIO.output('P8_15', GPIO.HIGH)
-GPIO.setup('P8_17', GPIO.OUT) #This output connects to D input of the D-Latch 
-GPIO.output('P8_17', GPIO.HIGH)
+# GPIO.setup(sysItems['Watchdog']['pin'], GPIO.OUT)
+# print(str(datetime.now()) + ' Starting watchdog')
+# sysItems['Watchdog']['thread']=Thread(target = runWatchdog, args=())
+# sysItems['Watchdog']['thread'].setDaemon(True)
+# sysItems['Watchdog']['thread'].start(); 
+# GPIO.setup('P8_15', GPIO.OUT) #This output connects to the RESET pin on the I2C Multiplexer.
+# GPIO.output('P8_15', GPIO.HIGH)
+# GPIO.setup('P8_17', GPIO.OUT) #This output connects to D input of the D-Latch 
+# GPIO.output('P8_17', GPIO.HIGH)

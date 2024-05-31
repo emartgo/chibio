@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('template', views.template, name='template'),
     path('getSysdata/', views.getSysdata, name='getSysdata'),
     # DEVICES FUNCTIONS
     path('scanDevices/<str:which>/', views.scanDevices_view, name='scanDevices'),
@@ -42,5 +43,5 @@ urlpatterns = [
     path('MeasureTemp/<str:which>/<str:M>', views.MeasureTemp_view, name='MeasureTemp'),
     # -------------------------------------------------------------------------------------------------
     path('ExperimentReset/', views.ExperimentReset_view, name='ExperimentReset'),
-    path('/Experiment/<str:value>/<str:M>', views.Experiment_view, name='Experiment'),
+    path('Experiment/<str:value>/<str:M>', views.ExperimentStartStop_view, name='Experiment'),
 ]

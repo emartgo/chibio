@@ -1,8 +1,9 @@
 from threading import Thread, Lock
 from datetime import datetime, date
-from .arduino import GPIO, I2C
+from .arduino.mockgpio import *
 from .sys import sysItems, sysData, sysDevices
 from .watchdog import toggleWatchdog
+from .controls import Thermostat, PumpModulation
 import os
 import random
 import time
@@ -10,6 +11,7 @@ import math
 import time
 
 lock=Lock()
+GPIO = MockGPIO()
 
 def I2CCom(M,device,rw,hl,data1,data2,SMBUSFLAG):
     #Function used to manage I2C bus communications for ALL devices.
