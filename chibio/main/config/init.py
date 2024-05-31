@@ -1,5 +1,5 @@
 from .setup import *
-from .arduino import SMBus
+from .arduino.mocksmbus import SMBus
 
 def initialise(M):
     #Function that initialises all parameters / clears stored values for a given device.

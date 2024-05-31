@@ -7,8 +7,10 @@ from .config.controls import *
 from .config.custom import *
 from .config.init import *
 
-initialiseAll()
-print(str(datetime.now()) + ' Start Up Complete')
+# initialiseAll()
+# print(str(datetime.now()) + ' Start Up Complete')
+def template(request):
+    return render(request, 'main/index.html')
 
 def index(request):
     #Function responsible for sending appropriate device's data to user interface. 
@@ -19,7 +21,7 @@ def index(request):
             else:
                 outputdata['presentDevices'][M]=0
 
-    return render(request, 'main/index.html', outputdata)
+    return render(request, 'main/index_new.html', outputdata)
 
 def getSysdata(request):
     outputdata = sysData[sysItems['UIDevice']]
@@ -122,7 +124,7 @@ def SetOutputTarget_view(request, M,item, value):
 # DIRECTIONS
 # These functions are responsible for changing the direction of a pump.
 # -------------------------------------------------------------------------------------------------
-def direction_view(request, M,item):
+def Direction_view(request, M,item):
     #Flips direction of a pump.
     try:
         direction(M,item)

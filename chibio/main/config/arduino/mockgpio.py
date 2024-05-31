@@ -17,4 +17,3 @@ class MockGPIO:
     def cleanup(self):
         print("GPIO cleanup()")
 
-GPIO = MockGPIO()

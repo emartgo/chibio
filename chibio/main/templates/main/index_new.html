@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+
+    <title>Chi.Bio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- STATIC JAVASCRIPT FILES - FRONTEND ITEMS -->
+    {% load static %}
+    <script type="text/javascript" src={% static "js/init.js" %}></script>
+    <link rel="stylesheet" href={% static "css/main.css" %}></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body onload="getSysData()">
+    <script>
+        google.charts.load('current', { packages: ['corechart', 'line'] });
+    </script>
+    <script>
+        setInterval(getSysData, 2000)
+    </script>
+    <div class="container-lg pt-3 pl-5 pr-5">
+        <div class="topbar row">
+            <div class="topbar-logo">
+                <a href="https://chi.bio" target="_blank">
+                    <img src="http://chi.bio/CBL.png" height="60px" style="padding-top: 5px;" onerror="TitleFailure()">
+                </a>
+            </div>
+            <div class="topbar-text">
+                <h4><strong>TFG Django Project</strong> by Eloy Martínez Gómez</h4>
+            </div>
+        </div>
+        <div class="content">
+            <div class="row no-gutters">
+                <div class="col-xl-4" align='center'>
+                    <h3>
+                        <div id="TName">TURBIDOSTAT</div>
+                    </h3>
+                    <div class="row no-gutters">
+                        <div class="col align-self-center"></div>
+        
+                        <div class="col-1 align-self-center">
+                            <button class="btn btn-sm btn-primary" id="Device0">M0</button> <br>
+                        </div>
+                        <div class="col-1 align-self-center">
+                            <button class="btn btn-sm btn-primary" id="Device1">M1</button> <br>
+                        </div>
+                        <div class="col-1 align-self-center">
+                            <button class="btn btn-sm btn-primary" id="Device2">M2</button> <br>
+                        </div>
+                        <div class="col-1 align-self-center">
+                            <button class="btn btn-sm btn-primary" id="Device3">M3</button> <br>
+                        </div>
+                        <div class="col-1 align-self-center">
+                            <button class="btn btn-sm btn-primary" id="Device4">M4</button> <br>
+                        </div>
+                        <div class="col-1 align-self-center">
+                            <button class="btn btn-sm btn-primary" id="Device5">M5</button> <br>
+                        </div>
+                        <div class="col-1 align-self-center">
+                            <button class="btn btn-sm btn-primary" id="Device6">M6</button> <br>
+                        </div>
+                        <div class="col-1 align-self-center">
+                            <button class="btn btn-sm btn-primary" id="Device7">M7</button> <br>
+                        </div>
+                        <div class="col align-self-center"></div>
+                    </div>
+                    <div style="line-height:25%;">
+                        <br>
+                    </div>
+        
+                    <div align='center' style="margin-top: 5px">
+                        <button class="btn btn-sm btn-success" id="ScanDevices">Scan Devices</button>
+                    </div>
+        
+                    <br>
+        
+                    <h3>EXPERIMENT</h3>
+        
+                    <button id="ExperimentRunningIndicator" class="btn btn-danger" disabled>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </button><br style="line-height: 40px; " />
+        
+                    <button class="btn btn-sm btn-success mt-2" id="ExperimentStart">Start</button>
+                    <button class="btn btn-sm btn-danger mt-2" id="ExperimentStop">Stop</button>
+                    <button class="btn btn-sm btn-primary mt-2" id="ExperimentReset">Reset</button><br style="line-height: 30px" />
+                    
+                    <br>
+                    <hr>
+                    EXPERIMENT START TIME: <br>
+                    <div style="display: inline" id="StartTime">0</div>
+                    <hr>
+                    <br>
+
+                    <h3>OD REGULATION</h3>
+                    <div style="line-height:25%;">
+                        <br>
+                    </div>
+                    <button class="btn btn-sm btn-primary mb-3" id="ODRegulate">Switch</button>
+                    <button class="btn btn-sm btn-primary mb-3" id="Zigzag">Dither OD</button>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="text-center align-middle">
+                                    <b>OD:</b> <br>
+                                    <button class="btn btn-sm btn-success" id="ODMeasure">Measure</button>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div id="ODCurrent">0</div>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div id="ODTarget">0.500</div>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <input id="ODInput" type="number" size="8" value="0" class="form-control" />
+                                </td>
+                                <td class="text-center align-middle">
+                                    <button id="ODSet" class="btn btn-primary">Set</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center align-middle">
+                                    <b>OD Zero:</b> <br>
+                                    Raw: <div id="ODRaw" style="display: inline">0</div>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div id="OD0Current">0</div>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <input id="OD0Actual" type="number" size="8" value="0" class="form-control" />
+                                </td>
+                                <td class="text-center align-middle">
+                                    <input id="OD0Input" type="number" size="8" value="0" class="form-control" />
+                                </td>
+                                <td class="text-center align-middle">
+                                    <button id="OD0Set" class="btn btn-primary">Set</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center align-middle">
+                                    <b>Volume (ml):</b>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <div id="VolumeCurrent">20.000</div>
+                                </td>
+                                <td class="text-center align-middle"></td>
+                                <td class="text-center align-middle">
+                                    <input id="VolumeInput" type="number" size="8" value="0" class="form-control" />
+                                </td>
+                                <td class="text-center align-middle">
+                                    <button id="VolumeSet" class="btn btn-primary">Set</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function TitleFailure() {
+            document.getElementById("titlesection").innerHTML = "<center><h3>Chi.Bio Control Panel <br> NO INTERNET CONNECTION!</h3></center>";
+        }
+    </script>
+    <script type="text/javascript" src={% static "js/link.js" %}></script>
+    <!-- Bootstrap Imports  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Graphing Business -->
+    <script>
+        google.charts.load('visualization', '1', { packages: ['controls'], });
+    </script>
+</body>
+</html>
