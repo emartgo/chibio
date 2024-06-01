@@ -33,12 +33,14 @@
                 </a>
             </div>
             <div class="topbar-text">
-                <h4><strong>TFG Django Project</strong> by Eloy Martínez Gómez</h4>
+                {% comment %} <h4><strong>TFG Django Project</strong> by Eloy Martínez Gómez</h4> {% endcomment %}
             </div>
         </div>
         <div class="content">
+            <!-- START CONTENT -->
             <div class="row no-gutters">
-                <div class="col-xl-4" align='center'>
+                <!-- START ROW -->
+                <div class="col-xl-5 m-auto" align='center'>
                     <h3>
                         <div id="TName">TURBIDOSTAT</div>
                     </h3>
@@ -89,12 +91,10 @@
                     <button class="btn btn-sm btn-danger mt-2" id="ExperimentStop">Stop</button>
                     <button class="btn btn-sm btn-primary mt-2" id="ExperimentReset">Reset</button><br style="line-height: 30px" />
                     
-                    <br>
                     <hr>
                     EXPERIMENT START TIME: <br>
-                    <div style="display: inline" id="StartTime">0</div>
+                    <div style="display: inline" id="StartTime">0 s</div>
                     <hr>
-                    <br>
 
                     <h3>OD REGULATION</h3>
                     <div style="line-height:25%;">
@@ -102,7 +102,8 @@
                     </div>
                     <button class="btn btn-sm btn-primary mb-3" id="ODRegulate">Switch</button>
                     <button class="btn btn-sm btn-primary mb-3" id="Zigzag">Dither OD</button>
-                    <table class="table table-bordered">
+                    <div class="container-table">
+                    <table class="table table-bordered table-striped">
                         <tbody>
                             <tr>
                                 <td class="text-center align-middle">
@@ -157,8 +158,719 @@
                             </tr>
                         </tbody>
                     </table>
+                    </div>
+                </div>
+                <div class="col-xl-6 ml-1" align="center">
+                    <h3>LIGHTS OUTPUT</h3>
+                    <!-- LED A -->
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Type</th>
+                                <th scope="col">Wavelength</th>
+                                <th scope="col">Current</th>
+                                <th scope="col">Default</th>
+                                <th scope="col">New</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="LEDAContainer">
+                                <td>LED</td>
+                                <td><span class="badge" style="background-color: #47008F; color: white;"><b>395nm</b></span></td>
+                                <td><div id="LEDACurrent">0</div></td>
+                                <td><div id="LEDADefault">0</div></td>
+                                <td><input id="LEDAInput" type="number" size="5" value="0" style="width: 4em" /></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" id="LEDASet">Set</button>
+                                    <button class="btn btn-sm btn-secondary" id="LEDASwitch">Switch</button>
+                                </td>
+                            </tr>
+                            <tr id="LEDBContainer">
+                                <td>LED</td>
+                                <td><span class="badge" style="background-color: #0056FF; color: white;"><b>457nm</b></span></td>
+                                <td><div id="LEDBCurrent">0</div></td>
+                                <td><div id="LEDBDefault">0</div></td>
+                                <td><input id="LEDBInput" type="number" size="5" value="0" style="width: 4em" /></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" id="LEDBSet">Set</button>
+                                    <button class="btn btn-sm btn-secondary" id="LEDBSwitch">Switch</button>
+                                </td>
+                            </tr>
+                            <tr id="LEDCContainer">
+                                <td>LED</td>
+                                <td><span class="badge" style="background-color: #00FFA5; color: white;"><b>500nm</b></span></td>
+                                <td><div id="LEDCCurrent">0</div></td>
+                                <td><div id="LEDCDefault">0</div></td>
+                                <td><input id="LEDCInput" type="number" size="5" value="0" style="width: 4em" /></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" id="LEDCSet">Set</button>
+                                    <button class="btn btn-sm btn-secondary" id="LEDCSwitch">Switch</button>
+                                </td>
+                            </tr>
+                            <tr id="LEDDContainer">
+                                <td>LED</td>
+                                <td><span class="badge" style="background-color: #36FF00; color: white;"><b>523nm</b></span></td>
+                                <td><div id="LEDDCurrent">0</div></td>
+                                <td><div id="LEDDDefault">0</div></td>
+                                <td><input id="LEDDInput" type="number" size="5" value="0" style="width: 4em" /></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" id="LEDDSet">Set</button>
+                                    <button class="btn btn-sm btn-secondary" id="LEDDSwitch">Switch</button>
+                                </td>
+                            </tr>
+                            <tr id="LEDIContainer">
+                                <td>LED</td>
+                                <td><span class="badge" style="background-color: #a3ff00; color: white;"><b>550nm</b></span></td>
+                                <td><div id="LEDICurrent">0</div></td>
+                                <td><div id="LEDIDefault">0</div></td>
+                                <td><input id="LEDIInput" type="number" size="5" value="0" style="width: 4em" /></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" id="LEDISet">Set</button>
+                                    <button class="btn btn-sm btn-secondary" id="LEDISwitch">Switch</button>
+                                </td>
+                            </tr>
+                            <tr id="LEDHContainer">
+                                <td>LED</td>
+                                <td><span class="badge" style="background-color: #ffbe00; color: white;"><b>600nm</b></span></td>
+                                <td><div id="LEDHCurrent">0</div></td>
+                                <td><div id="LEDHDefault">0</div></td>
+                                <td><input id="LEDHInput" type="number" size="5" value="0" style="width: 4em" /></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" id="LEDHSet">Set</button>
+                                    <button class="btn btn-sm btn-secondary" id="LEDHSwitch">Switch</button>
+                                </td>
+                            </tr>
+                            <tr id="LEDEContainer">
+                                <td>LED</td>
+                                <td><span class="badge" style="background-color: #FFC400; color: white;"><b>595nm</b></span></td>
+                                <td><div id="LEDECurrent">0</div></td>
+                                <td><div id="LEDEDefault">0</div></td>
+                                <td><input id="LEDEInput" type="number" size="5" value="0" style="width: 4em" /></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" id="LEDESet">Set</button>
+                                    <button class="btn btn-sm btn-secondary" id="LEDESwitch">Switch</button>
+                                </td>
+                            </tr>
+                            <tr id="LEDFContainer">
+                                <td>LED</td>
+                                <td><span class="badge" style="background-color: #FF5200; color: white;"><b>623nm</b></span></td>
+                                <td><div id="LEDFCurrent">0</div></td>
+                                <td><div id="LEDFDefault">0</div></td>
+                                <td><input id="LEDFInput" type="number" size="5" value="0" style="width: 4em" /></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" id="LEDFSet">Set</button>
+                                    <button class="btn btn-sm btn-secondary" id="LEDFSwitch">Switch</button>
+                                </td>
+                            </tr>
+                            <tr id="LEDGContainer">
+                                <td>LED</td>
+                                <td><span class="badge" style="background-color: #000000; color: white;"><b>6500K</b></span></td>
+                                <td><div id="LEDGCurrent">0</div></td>
+                                <td><div id="LEDGDefault">0</div></td>
+                                <td><input id="LEDGInput" type="number" size="5" value="0" style="width: 4em" /></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" id="LEDGSet">Set</button>
+                                    <button class="btn btn-sm btn-secondary" id="LEDGSwitch">Switch</button>
+                                </td>
+                            </tr>
+                            <tr id="LEDVContainer">
+                                <td>MIX</td>
+                                <td><span class="badge" style="background-color: #000000; color: white;"><b>White</b></span></td>
+                                <td><div id="LEDVCurrent">0</div></td>
+                                <td><div id="LEDVDefault">0</div></td>
+                                <td><input id="LEDVInput" type="number" size="5" value="0" style="width: 4em" /></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" id="LEDVSet">Set</button>
+                                    <button class="btn btn-sm btn-secondary" id="LEDVSwitch">Switch</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>LASER</td>
+                                <td><span class="badge" style="background-color: #FF0000; color: white;"><b>650nm</b></span></td>
+                                <td><div id="LASER650Current">0</div></td>
+                                <td><div id="LASER650Default">0</div></td>
+                                <td><input id="LASER650Input" type="number" size="5" value="0" style="width: 4em" /></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" id="LASER650Set">Set</button>
+                                    <button class="btn btn-sm btn-secondary" id="LASER650Switch">Switch</button>
+                                </td>
+                            </tr>
+                            <tr id="UVContainer">
+                                <td>UV</td>
+                                <td><span class="badge" style="background-color: #a5e1ff; color: white;"><b>280nm</b></span></td>
+                                <td><div id="UVCurrent">0</div></td>
+                                <td><div id="UVDefault">0</div></td>
+                                <td><input id="UVInput" type="number" size="5" value="0" style="width: 4em" /></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" id="UVSet">Set</button>
+                                    <button class="btn btn-sm btn-secondary" id="UVSwitch">Switch</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>         
+                </div>
+                <!-- END ROW -->
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-xl-5 m-auto" align="center">
+                    <h3>SPECTROMETER</h3>
+                    <b>FULL SPECTRAL MEASUREMENT:</b><br>
+                    <button id="GetSpectrum" class="btn btn-sm btn-primary">Measure</button>&nbsp &nbsp Gain:
+                    <select id="SpectrumGain" class="form-control form-control-sm d-inline-block mt-2" style="width: auto;">
+                        <option value="x0">0.5x</option>
+                        <option value="x1" selected>1x</option>
+                        <option value="x2">2x</option>
+                        <option value="x3">4x</option>
+                        <option value="x4">8x</option>
+                        <option value="x5">16x</option>
+                        <option value="x6">32x</option>
+                        <option value="x7">64x</option>
+                        <option value="x8">128x</option>
+                        <option value="x9">256x</option>
+                        <option value="x10">512x</option>
+                    </select>
+
+                    <table class="table table-striped mt-3">
+                        <tbody>
+                            <tr>
+                                <td>410nm</td>
+                                <td><div id="410nmSense">0</div></td>
+                            </tr>
+                            <tr>
+                                <td>440nm</td>
+                                <td><div id="440nmSense">0</div></td>
+                            </tr>
+                            <tr>
+                                <td>470nm</td>
+                                <td><div id="470nmSense">0</div></td>
+                            </tr>
+                            <tr>
+                                <td>510nm</td>
+                                <td><div id="510nmSense">0</div></td>
+                            </tr>
+                            <tr>
+                                <td>550nm</td>
+                                <td><div id="550nmSense">0</div></td>
+                            </tr>
+                            <tr>
+                                <td>583nm</td>
+                                <td><div id="583nmSense">0</div></td>
+                            </tr>
+                            <tr>
+                                <td>620nm</td>
+                                <td><div id="620nmSense">0</div></td>
+                            </tr>
+                            <tr>
+                                <td>670nm</td>
+                                <td><div id="670nmSense">0</div></td>
+                            </tr>
+                            <tr>
+                                <td>Clear</td>
+                                <td><div id="ClearSense">0</div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="text-center">
+                        <button id="MeasureFP" class="btn btn-sm btn-primary">Measure Fluorescent Proteins (FPs)</button>
+                    </div>
+
+                    <br>
+
+                    <h3>THERMOMETRY</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Type</th>
+                                <th scope="col">Measure</th>
+                                <th scope="col">Current</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>T (air, external)</b></td>
+                                <td><button id="TempMeasure" class="btn btn-sm btn-primary">Measure</button></td>
+                                <td><div id="TempCurrent">0</div></td>
+                            </tr>
+                            <tr>
+                                <td><b>T (air, internal)</b></td>
+                                <td><button id="TempMeasure2" class="btn btn-sm btn-primary">Measure</button></td>
+                                <td><div id="TempCurrent2">0</div></td>
+                            </tr>
+                            <tr>
+                                <td><b>T (liquid)</b></td>
+                                <td><button id="TempMeasure3" class="btn btn-sm btn-primary">Measure</button></td>
+                                <td><div id="TempCurrent3">0</div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <td><b>THERMOSTAT</b></td>
+                                <td><div id="ThermostatTarget">0</div></td>
+                                <td><input id="ThermostatInput" type="number" size="8" value="0" class="form-control form-control-sm" style="width: 6em;" /></td>
+                                <td>
+                                    <button id="ThermostatSet" class="btn btn-sm btn-primary">Set</button>
+                                    <button id="ThermostatSwitch" class="btn btn-sm btn-secondary">Switch</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="col-xl-5 mr-auto" align="center">
+                    <h3>STIR / PUMP</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Pump</th>
+                                <th scope="col">Current</th>
+                                <th scope="col">New Rate</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="Pump1Container">
+                                <td><span style="color: #000000;"><b>P1 (IN)</b></span></td>
+                                <td><div id="Pump1Current">0</div></td>
+                                <td><input id="Pump1Input" type="number" size="8" value="0" class="form-control form-control-sm" style="width: 6em;" /></td>
+                                <td>
+                                    <button id="Pump1Set" class="btn btn-sm btn-primary">Set</button>
+                                    <button id="Pump1Switch" class="btn btn-sm btn-secondary">Switch</button>
+                                    <button id="Pump1Direction" class="btn btn-sm btn-secondary">Direction</button>
+                                </td>
+                            </tr>
+                            <tr id="Pump2Container">
+                                <td><span style="color: #000000;"><b>P2 (OUT)</b></span></td>
+                                <td><div id="Pump2Current">0</div></td>
+                                <td><input id="Pump2Input" type="number" size="8" value="0" class="form-control form-control-sm" style="width: 6em;" /></td>
+                                <td>
+                                    <button id="Pump2Set" class="btn btn-sm btn-primary">Set</button>
+                                    <button id="Pump2Switch" class="btn btn-sm btn-secondary">Switch</button>
+                                    <button id="Pump2Direction" class="btn btn-sm btn-secondary">Direction</button>
+                                </td>
+                            </tr>
+                            <tr id="Pump3Container">
+                                <td><span style="color: #000000;"><b>P3</b></span></td>
+                                <td><div id="Pump3Current">0</div></td>
+                                <td><input id="Pump3Input" type="number" size="8" value="0" class="form-control form-control-sm" style="width: 6em;" /></td>
+                                <td>
+                                    <button id="Pump3Set" class="btn btn-sm btn-primary">Set</button>
+                                    <button id="Pump3Switch" class="btn btn-sm btn-secondary">Switch</button>
+                                    <button id="Pump3Direction" class="btn btn-sm btn-secondary">Direction</button>
+                                </td>
+                            </tr>
+                            <tr id="Pump4Container">
+                                <td><span style="color: #000000;"><b>P4</b></span></td>
+                                <td><div id="Pump4Current">0</div></td>
+                                <td><input id="Pump4Input" type="number" size="8" value="0" class="form-control form-control-sm" style="width: 6em;" /></td>
+                                <td>
+                                    <button id="Pump4Set" class="btn btn-sm btn-primary">Set</button>
+                                    <button id="Pump4Switch" class="btn btn-sm btn-secondary">Switch</button>
+                                    <button id="Pump4Direction" class="btn btn-sm btn-secondary">Direction</button>
+                                </td>
+                            </tr>
+                            <tr id="StirContainer">
+                                <td><span style="color: #000000;"><b>Stirring</b></span></td>
+                                <td><div id="StirCurrent">0</div></td>
+                                <td><input id="StirInput" type="number" size="8" value="0" class="form-control form-control-sm" style="width: 6em;" /></td>
+                                <td>
+                                    <button id="StirSet" class="btn btn-sm btn-primary">Set</button>
+                                    <button id="StirSwitch" class="btn btn-sm btn-secondary">Switch</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <h3>OPTOGENETICS</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Light</th>
+                                <th scope="col">Current</th>
+                                <th scope="col">New</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="LightContainer">
+                                <td>
+                                    <select id="LightExcite1" class="form-control form-control-sm"></select>
+                                </td>
+                                <td><div id="LightCurrent">0</div></td>
+                                <td><input id="LightInput" type="number" size="8" value="0" class="form-control form-control-sm" style="width: 6em;" /></td>
+                                <td>
+                                    <button id="LightSwitch" class="btn btn-sm btn-primary">Switch</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <h3>CUSTOM PROGRAMS</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Program</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">New</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="CustomContainer">
+                                <td>
+                                    <select id="CustomProgram1" class="form-control form-control-sm">
+                                        <option value="C1">C1</option>
+                                        <option value="C2">C2</option>
+                                        <option value="C3">C3</option>
+                                        <option value="C4">C4</option>
+                                        <option value="C5">C5</option>
+                                        <option value="C6">C6</option>
+                                        <option value="C7">C7</option>
+                                        <option value="C8">C8</option>
+                                    </select>
+                                </td>
+                                <td><div id="CustomStatus">0</div></td>
+                                <td><input id="CustomInput" type="number" size="8" value="0" class="form-control form-control-sm" style="width: 6em;" /></td>
+                                <td>
+                                    <button id="CustomSwitch" class="btn btn-sm btn-primary">Switch</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
+            <hr>
+
+            <div id="GraphReplot" hidden value="0"></div>
+                <div class="row">
+                    <div class="col-xl-4 col-lg-12 col-md-12">
+                        <div align='center'>
+                            <h3>OD</h3>
+                        </div>
+                        <div class="chart-container" id="chart_div1"></div>
+                    </div>
+                    <div class="col-xl-4 col-lg-12 col-md-12">
+                        <div align='center'>
+                            <h3>Thermometry</h3>
+                        </div>
+                        <div class="chart-container" id="chart_div2"></div>
+                    </div>
+                    <div class="col-xl-4 col-lg-12 col-md-12">
+                        <div align='center'>
+                            <h3>Pumping</h3>
+                        </div>
+                        <div class="chart-container" id="chart_div3"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-xl-4 col-lg-12 col-md-12">
+                        <div hidden id="FPRefresh"></div>
+                        <div align='center'>
+                            <h3>FP 1</h3>
+                            <button class="btn btn-sm btn-primary" id="FP1Switch">Active</button>
+                        </div>
+                        <br>
+                        <div id="Control1" class="container">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Excite</th>
+                                        <th>Baseband</th>
+                                        <th>Emit 1</th>
+                                        <th>Emit 2</th>
+                                        <th>Gain</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <select id="FPExcite1"></select><br> Current:
+                                        </td>
+                                        <td>
+                                            <select id="FPBase1">
+                                                <option value="CLEAR">Clear</option>
+                                                <option value="nm410">410/29</option>
+                                                <option value="nm440">440/33</option>
+                                                <option value="nm470">470/36</option>
+                                                <option value="nm510">510/40</option>
+                                                <option value="nm550">550/42</option>
+                                                <option value="nm583">583/44</option>
+                                                <option value="nm620">620/53</option>
+                                                <option value="nm670">670/60</option>
+                                                <option value="NIR">945/70</option>
+                                            </select><br>
+                                            <div id="FPBase1Value" style="display: inline">0</div>
+                                        </td>
+                                        <td>
+                                            <select id="FPEmit1A">
+                                                <option value="CLEAR">Clear</option>
+                                                <option value="nm410">410/29</option>
+                                                <option value="nm440">440/33</option>
+                                                <option value="nm470">470/36</option>
+                                                <option value="nm510">510/40</option>
+                                                <option value="nm550">550/42</option>
+                                                <option value="nm583">583/44</option>
+                                                <option value="nm620">620/53</option>
+                                                <option value="nm670">670/60</option>
+                                                <option value="NIR">945/70</option>
+                                            </select><br>
+                                            <div id="FPEmit1AValue" style="display: inline">0</div>
+                                        </td>
+                                        <td>
+                                            <select id="FPEmit1B">
+                                                <option value="OFF">OFF</option>
+                                                <option value="CLEAR">Clear</option>
+                                                <option value="nm410">410/29</option>
+                                                <option value="nm440">440/33</option>
+                                                <option value="nm470">470/36</option>
+                                                <option value="nm510">510/40</option>
+                                                <option value="nm550">550/42</option>
+                                                <option value="nm583">583/44</option>
+                                                <option value="nm620">620/53</option>
+                                                <option value="nm670">670/60</option>
+                                                <option value="NIR">945/70</option>
+                                            </select><br>
+                                            <div id="FPEmit1BValue" style="display: inline">0</div>
+                                        </td>
+                                        <td>
+                                            <select id="FPGain1">
+                                                <option value="x0">0.5x</option>
+                                                <option value="x1">1x</option>
+                                                <option value="x2">2x</option>
+                                                <option value="x3">4x</option>
+                                                <option value="x4">8x</option>
+                                                <option value="x5">16x</option>
+                                                <option value="x6">32x</option>
+                                                <option value="x7">64x</option>
+                                                <option value="x8">128x</option>
+                                                <option value="x9">256x</option>
+                                                <option value="x10">512x</option>
+                                            </select><br> &nbsp
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="chart-container" id="chart_div4"></div>
+                    </div>
+                    <div class="col-xl-4 col-lg-12 col-md-12">
+                        <div align='center'>
+                            <h3>FP 2</h3>
+                            <button class="btn btn-sm btn-primary" id="FP2Switch">Active</button>
+                        </div>
+                        <br>
+                        <div id="Control2" class="container">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Excite</th>
+                                        <th>Baseband</th>
+                                        <th>Emit 1</th>
+                                        <th>Emit 2</th>
+                                        <th>Gain</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <select id="FPExcite2"></select><br> Current:
+                                        </td>
+                                        <td>
+                                            <select id="FPBase2">
+                                                <option value="CLEAR">Clear</option>
+                                                <option value="nm410">410/29</option>
+                                                <option value="nm440">440/33</option>
+                                                <option value="nm470">470/36</option>
+                                                <option value="nm510">510/40</option>
+                                                <option value="nm550">550/42</option>
+                                                <option value="nm583">583/44</option>
+                                                <option value="nm620">620/53</option>
+                                                <option value="nm670">670/60</option>
+                                                <option value="NIR">945/70</option>
+                                            </select><br>
+                                            <div id="FPBase2Value" style="display: inline">0</div>
+                                        </td>
+                                        <td>
+                                            <select id="FPEmit2A">
+                                                <option value="CLEAR">Clear</option>
+                                                <option value="nm410">410/29</option>
+                                                <option value="nm440">440/33</option>
+                                                <option value="nm470">470/36</option>
+                                                <option value="nm510">510/40</option>
+                                                <option value="nm550">550/42</option>
+                                                <option value="nm583">583/44</option>
+                                                <option value="nm620">620/53</option>
+                                                <option value="nm670">670/60</option>
+                                                <option value="NIR">945/70</option>
+                                            </select><br>
+                                            <div id="FPEmit2AValue" style="display: inline">0</div>
+                                        </td>
+                                        <td>
+                                            <select id="FPEmit2B">
+                                                <option value="OFF">OFF</option>
+                                                <option value="CLEAR">Clear</option>
+                                                <option value="nm410">410/29</option>
+                                                <option value="nm440">440/33</option>
+                                                <option value="nm470">470/36</option>
+                                                <option value="nm510">510/40</option>
+                                                <option value="nm550">550/42</option>
+                                                <option value="nm583">583/44</option>
+                                                <option value="nm620">620/53</option>
+                                                <option value="nm670">670/60</option>
+                                                <option value="NIR">945/70</option>
+                                            </select><br>
+                                            <div id="FPEmit2BValue" style="display: inline">0</div>
+                                        </td>
+                                        <td>
+                                            <select id="FPGain2">
+                                                <option value="x0">0.5x</option>
+                                                <option value="x1">1x</option>
+                                                <option value="x2">2x</option>
+                                                <option value="x3">4x</option>
+                                                <option value="x4">8x</option>
+                                                <option value="x5">16x</option>
+                                                <option value="x6">32x</option>
+                                                <option value="x7">64x</option>
+                                                <option value="x8">128x</option>
+                                                <option value="x9">256x</option>
+                                                <option value="x10">512x</option>
+                                            </select><br> &nbsp
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="chart-container" id="chart_div5"></div>
+                    </div>
+                    <div class="col-xl-4 col-lg-12 col-md-12">
+                        <div align='center'>
+                            <h3>FP 3</h3>
+                            <button class="btn btn-sm btn-primary" id="FP3Switch">Active</button>
+                        </div>
+                        <br>
+                        <div id="Control3" class="container">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Excite</th>
+                                        <th>Baseband</th>
+                                        <th>Emit 1</th>
+                                        <th>Emit 2</th>
+                                        <th>Gain</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <select id="FPExcite3"></select><br> Current:
+                                        </td>
+                                        <td>
+                                            <select id="FPBase3">
+                                                <option value="CLEAR">Clear</option>
+                                                <option value="nm410">410/29</option>
+                                                <option value="nm440">440/33</option>
+                                                <option value="nm470">470/36</option>
+                                                <option value="nm510">510/40</option>
+                                                <option value="nm550">550/42</option>
+                                                <option value="nm583">583/44</option>
+                                                <option value="nm620">620/53</option>
+                                                <option value="nm670">670/60</option>
+                                                <option value="NIR">945/70</option>
+                                            </select><br>
+                                            <div id="FPBase3Value" style="display: inline">0</div>
+                                        </td>
+                                        <td>
+                                            <select id="FPEmit3A">
+                                                <option value="CLEAR">Clear</option>
+                                                <option value="nm410">410/29</option>
+                                                <option value="nm440">440/33</option>
+                                                <option value="nm470">470/36</option>
+                                                <option value="nm510">510/40</option>
+                                                <option value="nm550">550/42</option>
+                                                <option value="nm583">583/44</option>
+                                                <option value="nm620">620/53</option>
+                                                <option value="nm670">670/60</option>
+                                                <option value="NIR">945/70</option>
+                                            </select><br>
+                                            <div id="FPEmit3AValue" style="display: inline">0</div>
+                                        </td>
+                                        <td>
+                                            <select id="FPEmit3B">
+                                                <option value="OFF">OFF</option>
+                                                <option value="CLEAR">Clear</option>
+                                                <option value="nm410">410/29</option>
+                                                <option value="nm440">440/33</option>
+                                                <option value="nm470">470/36</option>
+                                                <option value="nm510">510/40</option>
+                                                <option value="nm550">550/42</option>
+                                                <option value="nm583">583/44</option>
+                                                <option value="nm620">620/53</option>
+                                                <option value="nm670">670/60</option>
+                                                <option value="NIR">945/70</option>
+                                            </select><br>
+                                            <div id="FPEmit3BValue" style="display: inline">0</div>
+                                        </td>
+                                        <td>
+                                            <select id="FPGain3">
+                                                <option value="x0">0.5x</option>
+                                                <option value="x1">1x</option>
+                                                <option value="x2">2x</option>
+                                                <option value="x3">4x</option>
+                                                <option value="x4">8x</option>
+                                                <option value="x5">16x</option>
+                                                <option value="x6">32x</option>
+                                                <option value="x7">64x</option>
+                                                <option value="x8">128x</option>
+                                                <option value="x9">256x</option>
+                                                <option value="x10">512x</option>
+                                            </select><br> &nbsp
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="chart-container" id="chart_div6"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-4">
+                        <div class="chart-container" id="chart_div7"></div>
+                    </div>
+                </div>
+
+                <center>
+                    <b>Status Terminal - </b>
+                    <button class="btn btn-sm btn-primary" id="ClearTerminal">Clear Terminal</button><br><br>
+                    <div id="termI"
+                        style="height:500px;width:90%;text-align:left;background-color:black;color:white;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;"></div>
+                    <br>
+                    <button class="btn btn-sm btn-primary" id="CharacteriseDevice">Characterise</button>
+                    <select id="CHProgram">
+                        <option value="C1">C1</option>
+                        <option value="C2">C2</option>
+                        <option value="C3">C3</option>
+                        <option value="C4">C4</option>
+                        <option value="C5">C5</option>
+                        <option value="C6">C6</option>
+                        <option value="C7">C7</option>
+                        <option value="C8">C8</option>
+                        <option value="C9">C9</option>
+                        <option value="C10">C10</option>
+                    </select>
+                </center>
+            </div>
+        <!-- END CONTENT -->
         </div>
     </div>
 

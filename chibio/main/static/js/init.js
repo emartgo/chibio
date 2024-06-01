@@ -40,10 +40,8 @@ function drawChart2(num,plotID,data_x,data_y1,data_y2,data_y3,data_y4,data_y5,da
        //ToPlot=ToPlot.zip(data_y);
      }
      
-       
        data.addRows(myarray)
        
-     
       var options = {
          height: 400,
              
@@ -54,7 +52,7 @@ function drawChart2(num,plotID,data_x,data_y1,data_y2,data_y3,data_y4,data_y5,da
           title: ylabel
          },
          legend: {position: 'top', alignment: 'end'},
-         chartArea: {width: '80%'}
+         chartArea: {width: '90%', height: '80%'},
        };
        
        if (charts[plotID] === undefined || charts[plotID] === null) {
