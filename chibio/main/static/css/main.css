@@ -42,7 +42,22 @@ body {
 .content {
     padding: 20px;
     margin: 20px;
-    height: 100vh;
+    height: auto;
     border-radius: 10px;
     background-color: #f8f9fa;
+}
+
+.container-table {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: solid 1px #e0e0e0;
+    padding: 1em;
+}
+
+.chart-container {
+    width: 100%;
+    border-radius: 10px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
 }
