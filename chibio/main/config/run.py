@@ -1,5 +1,7 @@
 from .setup import *
 from .controls import *
+from .custom import *
+from .export import *
 
 def runExperiment(M,placeholder):
     #Primary function for running an automated experiment.
