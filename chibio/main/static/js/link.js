@@ -3,7 +3,7 @@ $(function() { // ScanDevices
   $('#ScanDevices').click(function(){
     var targetURL = '/scanDevices/all';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -16,7 +16,7 @@ $(function() { // Devices0
   $('#Device0').click(function(){
     var targetURL = '/changeDevice/M0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -29,7 +29,7 @@ $(function() { // Devices1
   $('#Device1').click(function(){
     var targetURL = '/changeDevice/M1';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -42,7 +42,7 @@ $(function() { // Devices2
   $('#Device2').click(function(){
     var targetURL = '/changeDevice/M2';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -55,7 +55,7 @@ $(function() { // Devices3
   $('#Device3').click(function(){
     var targetURL = '/changeDevice/M3';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -68,7 +68,7 @@ $(function() { // Devices4
   $('#Device4').click(function(){
     var targetURL = '/changeDevice/M4';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -81,7 +81,7 @@ $(function() { // Devices5
   $('#Device5').click(function(){
     var targetURL = '/changeDevice/M5';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -94,7 +94,7 @@ $(function() { // Devices6
   $('#Device6').click(function(){
     var targetURL = '/changeDevice/M6';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -107,7 +107,7 @@ $(function() { // Devices7
   $('#Device7').click(function(){
     var targetURL = '/changeDevice/M7';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -121,7 +121,7 @@ $(function() { // CharacteriseDevice
     var v1 = $('#CHProgram').val();
     var targetURL = '/CharacteriseDevice/0/'+ v1;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -136,7 +136,7 @@ $(function() { // ClearTerminal
     $('#ClearTerminal').click(function(){
      
        $.ajax({
-           type:'POST',
+           type:'GET',
         url: '/ClearTerminal/0',
          success:function(response){ 
              getSysData();
@@ -156,7 +156,7 @@ $(function() { // FP1Switch
     var v5 = $('#FPGain1').val();
     var targetURL = '/SetFPMeasurement/FP1/' + v1 + '/'+ v2 + '/'+ v3 + '/'+ v4 + '/'+ v5 ;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -174,7 +174,7 @@ $(function() { // FP2Switch
     var v5 = $('#FPGain2').val();
     var targetURL = '/SetFPMeasurement/FP2/' + v1 + '/'+ v2 + '/'+ v3 + '/'+ v4 + '/'+ v5;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -192,7 +192,7 @@ $(function() { // FP3Switch
     var v5 = $('#FPGain3').val();
     var targetURL = '/SetFPMeasurement/FP3/' + v1 + '/'+ v2 + '/'+ v3 + '/'+ v4 + '/'+ v5;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -206,7 +206,7 @@ $(function() { // MeasureFP
     
     var targetURL = '/MeasureFP/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -227,7 +227,7 @@ $(function() { // ODRegulate
      
      var targetURL = '/SetOutputOn/OD/2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -241,7 +241,7 @@ $(function() { // Zigzag
      
      var targetURL = '/SetOutputOn/Zigzag/2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -269,7 +269,7 @@ $(function() { // LEDASwitch
      
      var targetURL = '/SetOutputOn/LEDA/2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -283,7 +283,7 @@ $(function() { // LEDBSet
     var value = $('#LEDBInput').val();
     var targetURL = '/SetOutputTarget/LEDB/0/' + value;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -297,7 +297,7 @@ $(function() { // LEDBSwitch
      
      var targetURL = '/SetOutputOn/LEDB/2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -311,7 +311,7 @@ $(function() { // LEDCSet
     var value = $('#LEDCInput').val();
     var targetURL = '/SetOutputTarget/LEDC/0/' + value;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -325,7 +325,7 @@ $(function() { // LEDCSwitch
      
      var targetURL = '/SetOutputOn/LEDC/2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -339,7 +339,7 @@ $(function() { // LEDDSet
     var value = $('#LEDDInput').val();
     var targetURL = '/SetOutputTarget/LEDD/0/' + value;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -353,7 +353,7 @@ $(function() { // LEDDSwitch
      
      var targetURL = '/SetOutputOn/LEDD/2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -367,7 +367,7 @@ $(function() { // LEDESet
     var value = $('#LEDEInput').val();
     var targetURL = '/SetOutputTarget/LEDE/0/' + value;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -381,7 +381,7 @@ $(function() { // LEDESwitch
      
      var targetURL = '/SetOutputOn/LEDE/2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -395,7 +395,7 @@ $(function() { // LEDFSet
     var value = $('#LEDFInput').val();
     var targetURL = '/SetOutputTarget/LEDF/0/' + value;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -409,7 +409,7 @@ $(function() { // LEDFSwitch
      
      var targetURL = '/SetOutputOn/LEDF/2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -423,7 +423,7 @@ $(function() { // LEDGSet
     var value = $('#LEDGInput').val();
     var targetURL = '/SetOutputTarget/LEDG/0/' + value;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -437,7 +437,7 @@ $(function() { // LEDGSwitch
      
      var targetURL = '/SetOutputOn/LEDG/2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -451,7 +451,7 @@ $('#LEDHSet').click(function(){
 var value = $('#LEDHInput').val();
 var targetURL = '/SetOutputTarget/LEDH/0/' + value;
  $.ajax({
-     type:'POST',
+     type:'GET',
      url: targetURL,
      success:function(response){ 
      getSysData();
@@ -465,7 +465,7 @@ $('#LEDHSwitch').click(function(){
  
  var targetURL = '/SetOutputOn/LEDH/2/0';
  $.ajax({
-     type:'POST',
+     type:'GET',
      url: targetURL,
      success:function(response){ 
      getSysData();
@@ -479,7 +479,7 @@ $('#LEDISet').click(function(){
 var value = $('#LEDIInput').val();
 var targetURL = '/SetOutputTarget/LEDI/0/' + value;
  $.ajax({
-     type:'POST',
+     type:'GET',
      url: targetURL,
      success:function(response){ 
      getSysData();
@@ -493,7 +493,7 @@ $('#LEDISwitch').click(function(){
  
  var targetURL = '/SetOutputOn/LEDI/2/0';
  $.ajax({
-     type:'POST',
+     type:'GET',
      url: targetURL,
      success:function(response){ 
      getSysData();
@@ -507,7 +507,7 @@ $('#LEDVSet').click(function(){
 var value = $('#LEDVInput').val();
 var targetURL = '/SetOutputTarget/LEDV/0/' + value;
  $.ajax({
-     type:'POST',
+     type:'GET',
      url: targetURL,
      success:function(response){ 
      getSysData();
@@ -521,7 +521,7 @@ $('#LEDVSwitch').click(function(){
  
  var targetURL = '/SetOutputOn/LEDV/2/0';
  $.ajax({
-     type:'POST',
+     type:'GET',
      url: targetURL,
      success:function(response){ 
      getSysData();
@@ -535,7 +535,7 @@ $(function() { // UVSet
     var value = $('#UVInput').val();
     var targetURL = '/SetOutputTarget/UV/0/' + value;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -549,7 +549,7 @@ $(function() { // UVSwitch
      
      var targetURL = '/SetOutputOn/UV/2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -563,7 +563,7 @@ $(function() { // LASER650Set
     var value = $('#LASER650Input').val();
     var targetURL = '/SetOutputTarget/LASER650/0/' + value;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -577,7 +577,7 @@ $(function() { // LASER650Switch
      
      var targetURL = '/SetOutputOn/LASER650/2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -591,7 +591,7 @@ $(function() { // ODSet
     var value = $('#ODInput').val();
     var targetURL = '/SetOutputTarget/OD/0/' + value;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -605,7 +605,7 @@ $(function() { // VolumeSet
     var value = $('#VolumeInput').val();
     var targetURL = '/SetOutputTarget/Volume/0/' + value;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -619,7 +619,7 @@ $(function() { // ThermostatSet
     var value = $('#ThermostatInput').val();
     var targetURL = '/SetOutputTarget/Thermostat/0/' + value;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -633,7 +633,7 @@ $(function() { // ThermostatSwitch
      
      var targetURL = '/SetOutputOn/Thermostat/2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -647,7 +647,7 @@ $(function() { // Pump1Set
     var value = $('#Pump1Input').val();
     var targetURL = '/SetOutputTarget/Pump1/0/' + value;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -661,7 +661,7 @@ $(function() { // Pump1Switch
      
      var targetURL = '/SetOutputOn/Pump1/2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -675,7 +675,7 @@ $(function() { // Pump2Set
     var value = $('#Pump2Input').val();
     var targetURL = '/SetOutputTarget/Pump2/0/' + value;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -689,7 +689,7 @@ $(function() { // Pump2Switch
      
      var targetURL = '/SetOutputOn/Pump2/2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -703,7 +703,7 @@ $(function() { // Pump3Set
     var value = $('#Pump3Input').val();
     var targetURL = '/SetOutputTarget/Pump3/0/' + value;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -717,7 +717,7 @@ $(function() { // Pump3Switch
      
      var targetURL = '/SetOutputOn/Pump3/2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -731,7 +731,7 @@ $(function() { // Pump4Set
     var value = $('#Pump4Input').val();
     var targetURL = '/SetOutputTarget/Pump4/0/' + value;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -744,7 +744,7 @@ $(function() { // Pump4Switch
   $('#Pump4Switch').click(function(){
      var targetURL = '/SetOutputOn/Pump4/2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -758,7 +758,7 @@ $(function() { // StirSet
     var value = $('#StirInput').val();
     var targetURL = '/SetOutputTarget/Stir/0/' + value;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -772,7 +772,7 @@ $(function() { // StirSwitch
      
      var targetURL = '/SetOutputOn/Stir/2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -792,7 +792,7 @@ $(function() { // Pump1Direction
      
      var targetURL = '/Direction/Pump1/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -806,7 +806,7 @@ $(function() { // Pump2Direction
      
      var targetURL = '/Direction/Pump2/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -820,7 +820,7 @@ $(function() { // Pump3Direction
      
      var targetURL = '/Direction/Pump3/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -834,7 +834,7 @@ $(function() { // Pump4Direction
      
      var targetURL = '/Direction/Pump4/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -850,7 +850,7 @@ $(function() { // GetSpectrum
     var value = $('#SpectrumGain').val();
     var targetURL = '/GetSpectrum/' + value + '/0';
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -867,7 +867,7 @@ $(function() { // CustomSwitch
      var v2 = $('#CustomInput').val();
      var targetURL = '/SetCustom/' + v1 + '/' + v2;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -884,7 +884,7 @@ $(function() { // LightSwitch
 
      var targetURL = '/SetLightActuation/' + v1;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
@@ -899,7 +899,7 @@ $(function() { // ExperimentStart
     $('#ExperimentStart').click(function(){
       
        $.ajax({
-        type:'POST',
+        type:'GET',
         url: '/Experiment/1/0',
          success:function(response){ 
              getSysData();
@@ -913,7 +913,7 @@ $(function() { // ExperimentStop
     $('#ExperimentStop').click(function(){
      
        $.ajax({
-           type:'POST',
+           type:'GET',
         url: '/Experiment/0/0',
          success:function(response){ 
              getSysData();
@@ -926,7 +926,7 @@ $(function() { // ExperimentReset
     $('#ExperimentReset').click(function(){
      
        $.ajax({
-           type:'POST',
+           type:'GET',
         url: '/ExperimentReset',
          success:function(response){ 
              getSysData();
@@ -944,7 +944,7 @@ $(function() { // OD0Set
       var value2 = $('#OD0Actual').val();
       var targetURL = '/CalibrateOD/OD0/0/' + value + '/' + value2;
        $.ajax({
-           type:'POST',
+           type:'GET',
            url: targetURL,
            success:function(response){ 
            getSysData();
@@ -958,7 +958,7 @@ $(function() { // ODMeasure
       
       var targetURL = '/MeasureOD/0';
        $.ajax({
-           type:'POST',
+           type:'GET',
            url: targetURL,
            success:function(response){ 
            getSysData();
@@ -972,7 +972,7 @@ $(function() { // TempMeasure
       
       var targetURL = '/MeasureTemp/External/0';
        $.ajax({
-           type:'POST',
+           type:'GET',
            url: targetURL,
            success:function(response){ 
            getSysData();
@@ -986,7 +986,7 @@ $(function() { // TempMeasure2
       
       var targetURL = '/MeasureTemp/Internal/0';
        $.ajax({
-           type:'POST',
+           type:'GET',
            url: targetURL,
            success:function(response){ 
            getSysData();
@@ -1000,7 +1000,7 @@ $(function() { // TempMeasure3
       
       var targetURL = '/MeasureTemp/IR/0';
        $.ajax({
-           type:'POST',
+           type:'GET',
            url: targetURL,
            success:function(response){ 
            getSysData();
