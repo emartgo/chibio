@@ -255,7 +255,7 @@ $(function() { // LEDASet
     var value = $('#LEDAInput').val();
     var targetURL = '/SetOutputTarget/LEDA/0/' + value;
      $.ajax({
-         type:'POST',
+         type:'GET',
          url: targetURL,
          success:function(response){ 
          getSysData();
